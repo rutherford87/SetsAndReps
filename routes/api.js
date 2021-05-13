@@ -8,3 +8,5 @@ router.get('/workouts', (req, res) => {
         res.json(error);
       })
 });
+
+module.exports = router;

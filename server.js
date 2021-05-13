@@ -1,10 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const logger = require("morgan");
-const db = require('../models');
+const db = require('./models');
+const path = require('path');
 
 
-const PORT = 3000;
+const PORT = 3001;
 const app = express();
 
 app.use(logger("dev"));
@@ -18,7 +19,6 @@ app.use(express.static("public"))
 
 // routes
 app.use(require("./routes/api.js"));
-app.use(require("./routes/view.js"));
 
 app.get('/stats', (req, res) => res.sendFile(path.join(__dirname, './public/stats.html')));
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, './public/index.html')));
